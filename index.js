@@ -24,7 +24,7 @@ const connect = async ()=>{
 connect();
 const clientApp = express()
 clientApp.use(cors({
-    origin: '*',
+    origin: 'https://music-party-admin.vercel.app/',
     methods: "GET,POST,PUT,DELETE",
     credentials: true
 }))
@@ -53,7 +53,7 @@ clientApp.use('/api/room',require('./route/routeClient/roomRoute.js'))
 const server = http.createServer(clientApp);
 const io = new Server(server,{
     cors:{
-        origin: '*',
+        origin: 'https://music-party-admin.vercel.app/',
         methods: ['GET','POST']
     }
 })
@@ -63,7 +63,7 @@ server.listen(PORT,()=>{console.log(`server run on port ${PORT}`)})
 // Admin app
 const adminApp= express()
 adminApp.use(cors({
-    origin: '*',
+    origin: 'https://music-party-admin.vercel.app',
     methods: "GET,POST,PUT,DELETE",
     credentials: true
 }))
